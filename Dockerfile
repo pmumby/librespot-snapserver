@@ -12,9 +12,15 @@ RUN /tmp/install-librespot.sh
 
 FROM debian:bullseye
 
+ARG SNAPCAST_VERSION=0.21.0
+
 RUN apt-get update \
- && apt-get -y install libasound2 snapserver mpv avahi-daemon libnss-mdns \
+ && apt-get -y install libasound2 mpv avahi-daemon libnss-mdns wget \
  && apt-get clean && rm -fR /var/lib/apt/lists
+
+RUN wget -O /tmp/snapserver.deb https://github.com/badaix/snapcast/releases/download/v${SNAPCAST_VERSION}/snapserver_${SNAPCAST_VERSION}-1_amd64.deb
+
+RUN dpkg -i /tmp/snapserver.deb
 
 COPY --from=librespot /usr/local/cargo/bin/librespot /usr/local/bin/
 

@@ -4,6 +4,11 @@ Run a [Snapcast](https://github.com/badaix/snapcast) server with [Spotify suppor
 
 _Note: You need a Spotify premium account._
 
+Uses Opus codec by default, for support of ESP32 based multi-room speaker setup.
+Modified to support Avahi, for mdns auto-discovery of snapcast server on network. (likely need to run in privileged mode!) still sorting that part out.
+This also allows auto-discovery of spotify connect from any spotify client on the same network
+Need to use host networking for avahi to work correctly (both for snapcast and librespot for spotify connect)
+
 ## Usage
 
 Run it like this:
