@@ -1,6 +1,7 @@
 # librespot-snapserver
 
-Run a [Snapcast](https://github.com/badaix/snapcast) server with [Spotify support](https://github.com/plietar/librespot) as a Docker container.
+Run a [Snapcast](https://github.com/badaix/snapcast) server with [Spotify support](https://github.com/librespot-org/librespot) as a Docker container.
+Designed specifically to work in conjuction with ESP32-LyraT based DIY/Opesource Multi-room Speaker Project: [ESP32 Snapclient](https://github.com/pmumby/snapclient)
 
 _Note: You need a Spotify premium account._
 
