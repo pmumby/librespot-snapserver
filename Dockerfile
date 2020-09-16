@@ -21,5 +21,8 @@ COPY --from=librespot /usr/local/cargo/bin/librespot /usr/local/bin/
 COPY run.sh /
 CMD ["/run.sh"]
 
+RUN mkdir /config && cp /etc/snapserver.conf /config/snapserver.conf
+
 ENV DEVICE_NAME=Snapcast
 EXPOSE 1704/tcp 1705/tcp
+VOLUME /config
