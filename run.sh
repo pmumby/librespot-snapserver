@@ -13,6 +13,9 @@ if [[ -n "${USERNAME:-}" ]] && [[ -n "${PASSWORD:-}" ]]; then
   credentials="\&username=$USERNAME\&password=$PASSWORD"
 fi
 
+# create default librespot config if it the original default pipe exists (fresh config file):
+sed -i "s,^source =.*name=default,source = librespot:///librespot?name=Spotify\&devicename=$DEVICE_NAME\&bitrate=320\&volume=100$credentials," /config/snapserver.conf
+
 # update the config to represent current intended behavior from env:
 sed -i "s,^source = librespot.*,source = librespot:///librespot?name=Spotify\&devicename=$DEVICE_NAME\&bitrate=320\&volume=100$credentials," /config/snapserver.conf
 
