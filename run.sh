@@ -14,7 +14,7 @@ if [[ -n "${USERNAME:-}" ]] && [[ -n "${PASSWORD:-}" ]]; then
 fi
 
 # update the config to represent current intended behavior from env:
-sed -i "s,^source = .*,source = librespot:///librespot?name=Spotify\&devicename=$DEVICE_NAME\&bitrate=320\&volume=100$credentials," /config/snapserver.conf
+sed -i "s,^source = librespot.*,source = librespot:///librespot?name=Spotify\&devicename=$DEVICE_NAME\&bitrate=320\&volume=100$credentials," /config/snapserver.conf
 
 # Switch to opus codec for better low latency networking
 sed -i "s,^#codec = .*,codec = opus," /config/snapserver.conf
